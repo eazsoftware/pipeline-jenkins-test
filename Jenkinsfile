@@ -34,7 +34,7 @@ pipeline {
             }
             steps{
                 echo 'Tagging Version'
-                sh 'mvn release:clean release:prepare release:perform'
+                sh 'mvn release:clean release:prepare'
                 script{
                     sh "git describe --tags \$(git rev-list --tags --max-count=1) > version.txt"
                     taggedVersion = readFile "version.txt"
