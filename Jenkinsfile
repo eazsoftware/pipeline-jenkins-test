@@ -12,7 +12,6 @@ pipeline {
                     echo "M2_HOME = ${M2_HOME}"
                     git config --global user.email projectninefifteen@gmail.com
                     git config --global user.name jenkins-docker
-                    ssh -T git@github.com
                 '''
             }
         }
