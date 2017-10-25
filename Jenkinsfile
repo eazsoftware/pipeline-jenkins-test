@@ -56,6 +56,17 @@ pipeline {
         always {
             deleteDir()
         }
+        success{
+            script{
+                def previousResult = currentBuild.previousBuild?.result
+                if (previousResult == 'FAILURE') {
+                    slackSend channel: "#jenkins", color: "good", message: "Back to normal - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open for details>)"
+                }
+            }
+        }
+        failure{
+            slackSend channel: "#jenkins", color: "danger", message: ":no_entry_sign: Failure: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open for details>)"
+        }
     }
 
     options {
