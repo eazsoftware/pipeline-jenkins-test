@@ -28,4 +28,12 @@
             </plugin>
         </plugins>
     </build>
+    
+    <scm>
+        <url>https://github.com/eazsoftware/pipeline-jenkins-test</url>
+        <connection>scm:git:git//github.com/eazsoftware/pipeline-jenkins-test.git</connection>        
+        <developerConnection>scm:git:git@github.com:eazsoftware/pipeline-jenkins-test.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+    
 </project>
