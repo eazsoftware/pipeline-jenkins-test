@@ -51,4 +51,23 @@ pipeline {
         }
         
     }
+
+    post {
+        always {
+            deleteDir()
+        }
+    }
+
+    options {
+        // Only keep the last 10 builds
+        buildDiscarder(logRotator(numToKeepStr:'10'))
+
+        // Only be deploying to one proxy at a time
+        disableConcurrentBuilds()
+
+        timeout(time: 3, unit: 'MINUTES')
+
+        // Prepend log statements with timestamps
+        timestamps()
+    }
 }
