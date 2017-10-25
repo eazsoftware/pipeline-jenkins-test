@@ -56,12 +56,10 @@ pipeline {
         always {
             deleteDir()
         }
-        success{
-            script{
-                slackSend channel: "#jenkins", color: "good", message: "Build successful - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open for details>)"
-            }
+        success {
+            slackSend channel: "#jenkins", color: "good", message: "Build successful - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open for details>)"
         }
-        failure{
+        failure {
             slackSend channel: "#jenkins", color: "danger", message: ":no_entry_sign: Failure: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open for details>)"
         }
     }
