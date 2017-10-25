@@ -58,7 +58,7 @@ pipeline {
         }
         success{
             script{
-                slackSend channel: "#jenkins", color: "good", message: "Back to normal - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open for details>)"
+                slackSend channel: "#jenkins", color: "good", message: "Build successful - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open for details>)"
             }
         }
         failure{
